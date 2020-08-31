@@ -1,6 +1,8 @@
 Role Name
 =========
 
+[![Build Status](https://travis-ci.com/BenoitCharret/certbot.svg?branch=master)](https://travis-ci.com/BenoitCharret/certbot)
+
 This role install a let's encrypt certiticate as the default certificate and using a dns validation against OVH.
 During the installation, the role will generate the certificate and install a cron to easily renew it.
 
