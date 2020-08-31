@@ -22,7 +22,8 @@ A description of the settable variables for this role should go here, including 
  dns_ovh_consumer_key | OVH consumer key
  python_path | the path for the directory of python (maybe /volume1/@appstore/py3k/usr/local/bin/ if python is installed with synology package manager
  dns_email | the mail that will receive information and reminder from let's encrypt
- dns_domain | the domain for which the certificate will be generated (may be a wildcard certificate   
+ dns_domain | the domain for which the certificate will be generated (may be a wildcard certificate
+    
  The OVH credentials can be created through this url : https://eu.api.ovh.com/createApp/
 
 Example Playbook
