@@ -1,0 +1,39 @@
+---
+# tasks file for certbot
+
+- name: install certbot
+  pip:
+    executable: "{{ python_path }}/pip3"
+    name:
+      - certbot
+      - certbot-dns-ovh
+    state: present
+
+- name: copy ovh api key
+  template:
+    dest: /root/.ovhapi
+    src: templates/ovhapi.j2
+    mode: 0600
+
+- name: copy deploy cert file
+  template:
+    dest: /root/deploy_certificate.sh
+    src: templates/deploy_certificate.sh.j2
+    mode: 0700
+
+- name: copy renew cert file
+  template:
+    dest: /root/renew_certificate.sh
+    src: templates/renew_certificate.sh.j2
+    mode: 0700
+
+- name: generate certificate
+  shell:
+    cmd: "{{ python_path }}/python3 certbot certonly --dns-ovh --dns-ovh-credentials /root/.ovhapi --non-interactive --agree-tos --email {{ dns_email }} -d {{ dns_domain }} --deploy-hook /root/deploy_certificate.sh"
+    chdir: "{{ python_path }}"
+
+- name: add renew cron job
+  lineinfile:
+    path: /etc/crontab
+    line: "0	10	*	*	6	root	/root/renew_certificate.sh"
+  notify: restart crond

@@ -1,0 +1,4 @@
+---
+# handlers file for certbot
+- name: restart crond
+  shell: "/usr/syno/sbin/synoservice --restart crond"

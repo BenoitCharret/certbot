@@ -1,0 +1,7 @@
+---
+# defaults file for certbot
+
+dns_ovh_endpoint: "{{ vault_dns_ovh_endpoint }}"
+dns_ovh_application_key: "{{ vault_dns_ovh_application_key }}"
+dns_ovh_application_secret: "{{ vault_dns_ovh_application_secret }}"
+dns_ovh_consumer_key: "{{ vault_dns_ovh_consumer_key }}"

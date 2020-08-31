@@ -1,0 +1,14 @@
+#!/bin/bash
+chattr -i /usr/syno/etc/certificate/system/default/fullchain.pem && \
+chattr -i /usr/syno/etc/certificate/system/default/privkey.pem && \
+chattr -i /usr/syno/etc/certificate/system/default/chain.pem && \
+chattr -i /usr/syno/etc/certificate/system/default/cert.pem && \
+cp /etc/letsencrypt/live/{{ dns_domain | regex_replace('^\\*\\.') }}/fullchain.pem /usr/syno/etc/certificate/system/default/fullchain.pem && \
+cp /etc/letsencrypt/live/{{ dns_domain | regex_replace('^\\*\\.') }}/privkey.pem /usr/syno/etc/certificate/system/default/privkey.pem && \
+cp /etc/letsencrypt/live/{{ dns_domain | regex_replace('^\\*\\.') }}/chain.pem /usr/syno/etc/certificate/system/default/chain.pem && \
+cp /etc/letsencrypt/live/{{ dns_domain | regex_replace('^\\*\\.') }}/cert.pem /usr/syno/etc/certificate/system/default/cert.pem && \
+chattr +i /usr/syno/etc/certificate/system/default/fullchain.pem && \
+chattr +i /usr/syno/etc/certificate/system/default/privkey.pem && \
+chattr +i /usr/syno/etc/certificate/system/default/chain.pem && \
+chattr +i /usr/syno/etc/certificate/system/default/cert.pem && \
+/usr/syno/sbin/synoservicectl --restart nginx

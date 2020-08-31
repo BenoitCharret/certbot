@@ -1,0 +1,3 @@
+#!/bin/bash
+cd {{ python_path }}
+{{ python_path }}python3 certbot certonly --dns-ovh --dns-ovh-credentials /root/.ovhapi --non-interactive --agree-tos --email {{ dns_email }} -d {{ dns_domain }} --post-hook /root/deploy_certificate.sh
