@@ -1,6 +1,6 @@
 galaxy_info:
   author: Benoit Charret
-  description: your role description
+  description: Install default let's encrypt certificate with dns validation
   company: Axio Consulting
 
   # If the issue tracker for your role is not on github, uncomment the
