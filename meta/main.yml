@@ -1,6 +1,6 @@
 galaxy_info:
   author: Benoit Charret
-  description: Install default let's encrypt certificate with dns validation
+  description: Install default let's encrypt certificate with dns validation for synology
   company: Axio Consulting
 
   # If the issue tracker for your role is not on github, uncomment the
